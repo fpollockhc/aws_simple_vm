@@ -3,16 +3,8 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_vpc" "example" {
-  cidr_block = "172.16.0.0/16"
-
-  tags = {
-    Name = "tf-example"
-  }
-}
-
 resource "aws_subnet" "example" {
-  vpc_id            = aws_vpc.example.id
+  vpc_id            = "vpc-0003dc24dd09db43f"
   cidr_block        = "172.16.10.0/24"
   availability_zone = "us-east-2a"
 
