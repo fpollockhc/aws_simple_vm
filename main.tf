@@ -3,13 +3,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket"
-
-  region = "us-east-1"
-
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
+module "s3-bucket" {
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "4.6.0"
 }
